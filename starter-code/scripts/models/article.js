@@ -74,12 +74,19 @@ Article.numWordsAll = function() {
 };
 
 Article.allAuthors = function() {
-  // TODO: return a mapped collection
+  // TODO: DONE-ish return a mapped collection
       // with just the author names
+  return Article.allArticles.map(function(currentArticle) {
+     return currentArticle.author;
+  }).reduce(function(acc, cur, indx, arr) {
+    if(acc[indx] !== cur) {
+    return acc
+    }
+  }, []);
 
       //then chain reduce, and set the accumulator to an array
       // to build a unique list of author names.
-}
+};
 
 Article.numWordsByAuthor = function() {
   // TODO: transform each author element into an object with 2 properties:
